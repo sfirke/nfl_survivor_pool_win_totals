@@ -27,4 +27,8 @@ ggplot(as.data.frame(perc_winners), aes(x = perc_winners)) +
   geom_vline(x = actual_winners, color = "red") + # actual % who won
   geom_vline(x = median(perc_winners), color = "blue") + # median expected result
   geom_vline(x = quantile(perc_winners, .01), color = "orange") + # 1st percentile, for reference
-  theme_bw()
+  theme_bw() +
+  labs(title = "Win Rates in 1M Simulations of\n2015 NFL Survivor Pool Season Week 2", x = "share of pool winning")
+  
+
+ggsave("simulation results.png", scale = 1, width = 6)
